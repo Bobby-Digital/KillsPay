@@ -1,0 +1,57 @@
+#######################################################################
+#  KillsPay version 1.1
+#  Created by BobbyD441 and duncandelano
+#  
+#  Color codes:
+#  %0 - black        %a - Green
+#  %1 - Dark blue    %b - Aqua
+#  %2 - Dark green   %c - Red
+#  %4 - Dark red     %d - pink
+#  %5 - Purple       %e - Yellow
+#  %6 - Gold         %f - White
+#  %7 - Gray
+#  %8 - Dark gray
+#  %9 - Blue
+#
+#  PLEASE NOTE THAT YOU MUST INSERT A SPACE AFTER THE COLORCODE / OTHER
+#
+#  Other:
+#  %killer - The killing player name
+#  %died - The dead player name
+#  %mob - The killed mob type
+#  %amount - The amount of credits paid
+########################################################################
+
+KillsPay:
+  messages:
+    logtoconsole: true
+    playergotkilledmessage: "%a Aww %killer killed you, pay him %amount"
+    killedaplayermessage: "%a You received %amount for killing %died"
+    killedamobmessage: "%a You received %amount for killing a %mob"
+  killplayer:
+    killplayer: true
+    showpaymessage: true
+    playerpays: true
+    amount: 1.0
+  killmob:
+    killmob: true
+    killfriendlymob: true
+    showpaymessage: true
+    friendlyamount: 1.0
+  angrymobprice:
+    ppermob: false
+    defaultmobprice: 1.0
+    zombie: 1.0
+    spider: 1.0
+    creeper: 1.0
+    skeleton: 1.0
+    giant: 1.0
+    slime: 1.0
+    ghast: 1.0
+    pigzombie: 1.0
+    enderman: 1.0
+    cavespider: 1.0
+    blaze: 1.0
+    silverfish: 1.0
+    magmacube: 1.0
+    enderdragon: 1.0

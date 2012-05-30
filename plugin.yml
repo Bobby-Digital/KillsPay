@@ -1,0 +1,9 @@
+name: KillsPay
+main: bobbyd441.mc.kp.main.KillsPay
+version: 1.0
+depend: [Vault]
+authors: [BobbyD441, duncandelano]
+permissions:
+    killspay.use:
+        description: Allow the use of KillsPay
+        default: false
