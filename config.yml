@@ -33,6 +33,7 @@ KillsPay:
     showpaymessage: true
     playerpays: true
     amount: 1.0
+    percentage: 10
   killmob:
     killmob: true
     killfriendlymob: true
