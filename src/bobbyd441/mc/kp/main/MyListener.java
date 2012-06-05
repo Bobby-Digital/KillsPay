@@ -1,8 +1,6 @@
 package bobbyd441.mc.kp.main;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.UUID;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
@@ -11,14 +9,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public class MyListener implements Listener{
+public class MyListener {
 	
 	public static Economy econ = null;
 	
@@ -38,8 +33,6 @@ public class MyListener implements Listener{
     public double friendlyMobAmount;
     public double percentage;
     public boolean angryMob;
-    
-    public HashMap<UUID, Boolean> spawnerList = new HashMap<UUID, Boolean>();
 	
 	public MyListener(KillsPay kp)
 	{
@@ -146,20 +139,6 @@ public class MyListener implements Listener{
 		//Check if the killer is a player
 		if (killer instanceof Player && (killMob || killFrienlyMob) && killer.hasPermission("killspay.use"))
 		{
-			boolean spawnedFromSpawner = false;
-			try
-			{
-				spawnedFromSpawner = spawnerList.get(evt.getEntity().getUniqueId());
-			}
-			catch (Exception e)
-			{
-				
-			}
-			if(spawnedFromSpawner)
-			{
-				spawnerList.remove(evt.getEntity().getUniqueId());
-				return;
-			}
 			mobKillAmount = kp.getConfig().getDouble("KillsPay.angrymobprice.defaultmobprice");
 			
 			if (ent.getType().toString().equalsIgnoreCase("ZOMBIE"))
@@ -272,15 +251,6 @@ public class MyListener implements Listener{
 		}
 	}
 
-	@EventHandler
-	public void onCreatureSpawnEvent(CreatureSpawnEvent evt)
-	{
-		if(evt.getSpawnReason() == SpawnReason.SPAWNER)
-		{
-			spawnerList.put(evt.getEntity().getUniqueId(), true);
-		}
-	}
-	
 	public String getCurrency()
     {
 		if ((mobKillAmount > 1) || (mobKillAmount < 0))
