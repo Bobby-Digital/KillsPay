@@ -41,7 +41,7 @@ public class KillsPay extends JavaPlugin implements Listener {
         }
         
 		//Make sure events can be handled by this plugin
-		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(new MyListener(this), this);
 		
 		//See if there is a config file
 		checkConfig();
